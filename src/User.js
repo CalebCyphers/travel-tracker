@@ -1,5 +1,5 @@
 class User {
-  constructor(userId) {
+  constructor(userId, travelData) {
     this.userId = userId
   }
 
@@ -11,6 +11,7 @@ class User {
         this.travelerType = data.travelerType
       })
   }
+
 }
 
 export default User;
