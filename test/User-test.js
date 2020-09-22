@@ -1,14 +1,14 @@
 import chai from 'chai';
 const expect = chai.expect;
 import User from '../src/User.js';
-import TravelRepository from '../src.TravelRepository.js';
+import TravelRepository from '../src/TravelRepository.js';
 
+let testRepository;
+let testUser;
 
 describe('User', () => {
   beforeEach(() => {
-    let testRepository = new TravelRepository()
-    let testUser = new User(1, testRepository)
-
+    testRepository = new TravelRepository()
     testRepository.destinations = [
       {
         alt: "a picture of cool stuff",
@@ -78,16 +78,13 @@ describe('User', () => {
         userID: 1
       }
     ]
+
+    testUser = new User(2, testRepository)
+    testUser.name = "Dingus Dankus"
+    testUser.travelerType = "relaxer"
   })
 
-
-
-
-
-
-
-
-  it('should return true', function() {
-    expect(true).to.equal(true);
+  it('should have a name', () => {
+    expect(testUser.name).to.equal("Dingus Dankus");
   });
 });
