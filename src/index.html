@@ -1,19 +1,133 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Webpack Starter Kit</title>
+    <title>Travel Tracker</title>
   </head>
   <body>
-    <h1>what the flippin heck dude</h1>
-    <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-3 align-items-center">
-        <img src="./images/turing-logo.png" class="" alt="turing logo" height="100px" width="100px">
+    <section class="page-title-section">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>TRAVEL</h1>
+          </div>
+          <div class="col-2">
+            <i class="material-icons">flight</i>
+          </div>
+          <div class="col">
+            <h1>TRACKER</h1>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
+    </section>
+    <section class="greeting-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-8">
+            <h2 class="greeting-text">Welcome Placeholder</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="upcoming-trip-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 trip-image-column">
+            <h3>Upcoming Trips</h3>
+          </div>
+          <div class="col-6 trip-content-column">
+            <div class="container trip-content-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="current-trip-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 trip-image-column">
+            <h3>Current Trip</h3>
+          </div>
+          <div class="col-6 trip-content-column">
+            <div class="container trip-content-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pending-trip-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 trip-image-column">
+            <h3>Pending Trips</h3>
+          </div>
+          <div class="col-6 trip-content-column">
+            <div class="container trip-content-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="past-trip-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 trip-image-column">
+            <h3>Past Trips</h3>
+          </div>
+          <div class="col-6 trip-content-column">
+            <div class="container trip-content-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="trip-request-section">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h3>Request a trip</h3>
+          </div>
+        </div>
+        <div class="row">
+          <form action="request a trip">
+            <div class="form-group">
+              <label for="destination-select">Select Destination</label>
+              <select class="form-control" id="destination-select">
+                <option>placeholder 1</option>
+                <option>placeholder 2</option>
+                <option>placeholder 3</option>
+                <option>placeholder 4</option>
+                <option>placeholder 5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="departure-date">Departure date</label>
+              <input type="date" class="form-control" id="departure-date">
+            </div>
+            <div class="form-group">
+              <label for="return-date">Return date</label>
+              <input type="date" class="form-control" id="return-date">
+            </div>
+            <div class="form-group">
+            <div class="form-group">
+              <label for="number-of-travelers">Number of travelers</label>
+              <input type="number" class="form-control" id="number-of-travelers">
+            </div>
+            <div class="form-group">
+              <h4>Estimated cost: $42</h4>
+            </div>
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="total-spent-section">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h3>Total spent this year: $42</h3>
+            <p>Number includes $2 in travel agent fees</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
