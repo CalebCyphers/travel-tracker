@@ -12,6 +12,7 @@ let repository = new TravelRepository;
 
 traveler.getUserData();
 repository.getDestinations();
+repository.getTrips();
 
 setTimeout(function() { 
   console.log(traveler)
