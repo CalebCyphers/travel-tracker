@@ -87,4 +87,8 @@ describe('User', () => {
   it('should have a name', () => {
     expect(testUser.name).to.equal("Dingus Dankus");
   });
+
+  it('should have a type', () => {
+    expect(testUser.travelerType).to.equal("relaxer");
+  });
 });
