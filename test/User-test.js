@@ -91,4 +91,11 @@ describe('User', () => {
   it('should have a type', () => {
     expect(testUser.travelerType).to.equal("relaxer");
   });
+
+  it('should be able to fetch data', () => {
+    
+    testUser.getUserData;
+
+    expect(testUser.getUserData()).to.have.been.called();
+  });
 });
