@@ -6,6 +6,7 @@ class User {
     this.upcomingTrips = this.findUpcomingTrips(travelData)
     this.pastTrips = this.findPastTrips(travelData)
     this.pendingTrips = this.findPendingTrips(travelData)
+    this.currentTrip = this.findCurrentTrip(travelData)
   }
 
   findUpcomingTrips(travelData) {
@@ -32,6 +33,15 @@ class User {
       let future = time.daysFromDate(tomorrow, 36500)
       let departure = time.buildDate(trip.date)
       return trip.status === "pending" && trip.userID === this.userId ? time.isBetween(tomorrow, departure, future) : false
+    })
+  }
+
+  findCurrentTrip(travelData) {
+    return travelData.trips.filter(trip => {
+      let today = new Date()
+      let departure = time.buildDate(trip.date)
+      let finalDayOfTrip = time.daysFromDate(departure, trip.duration)
+      return trip.status === "approved" && trip.userID === this.userId ? time.isBetween(departure, today, finalDayOfTrip) : false
     })
   }
 
