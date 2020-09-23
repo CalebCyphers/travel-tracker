@@ -7,12 +7,19 @@ import User from './User';
 import TravelRepository from './TravelRepository';
 import './images/turing-logo.png'
 
-let traveler = new User(10);
+let traveler;
 let repository = new TravelRepository;
-
-traveler.getUserData();
 repository.getDestinations();
 repository.getTrips();
+
+setTimeout(() => {
+  traveler = new User(getRandomUserID(), repository);
+  traveler.getUserData();
+}, 1000)
+
+let getRandomUserID = () => {
+  return Math.floor(Math.random() * 20)
+}
 
 setTimeout(function() { 
   console.log(traveler)
