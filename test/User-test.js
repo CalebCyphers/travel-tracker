@@ -106,4 +106,19 @@ describe('User', () => {
       }
     ])
   });
+
+  it('should be able to have past trips', () => {
+    expect(testUser.pastTrips).to.deep.equal([
+      {
+        date: "2019/09/16",
+        destinationID: 2,
+        duration: 8,
+        id: 1,
+        status: "approved",
+        suggestedActivities: [],
+        travelers: 1,
+        userID: 2
+      }
+    ]);
+  });
 });
