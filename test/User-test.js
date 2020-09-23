@@ -121,4 +121,19 @@ describe('User', () => {
       }
     ]);
   });
+
+  it('should be able to have pending trips', () => {
+    expect(testUser.pendingTrips).to.deep.equal([
+      {
+        date: "2020/10/04",
+        destinationID: 3,
+        duration: 3,
+        id: 2,
+        status: "pending",
+        suggestedActivities: [],
+        travelers: 5,
+        userID: 2
+      }
+    ]);
+  });
 });
