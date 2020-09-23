@@ -68,11 +68,11 @@ describe('User', () => {
         userID: 2
       },
       {
-        date: "2020/02/25",
+        date: "2020/09/15",
         destinationID: 3,
-        duration: 10,
+        duration: 20,
         id: 4,
-        status: "pending",
+        status: "approved",
         suggestedActivities: [],
         travelers: 2,
         userID: 2
@@ -117,6 +117,36 @@ describe('User', () => {
         status: "approved",
         suggestedActivities: [],
         travelers: 1,
+        userID: 2
+      }
+    ]);
+  });
+
+  it('should be able to have pending trips', () => {
+    expect(testUser.pendingTrips).to.deep.equal([
+      {
+        date: "2020/10/04",
+        destinationID: 3,
+        duration: 3,
+        id: 2,
+        status: "pending",
+        suggestedActivities: [],
+        travelers: 5,
+        userID: 2
+      }
+    ]);
+  });
+
+  it('should be able to have a current trip', () => {
+    expect(testUser.currentTrip).to.deep.equal([
+      {
+        date: "2020/09/15",
+        destinationID: 3,
+        duration: 20,
+        id: 4,
+        status: "approved",
+        suggestedActivities: [],
+        travelers: 2,
         userID: 2
       }
     ]);
