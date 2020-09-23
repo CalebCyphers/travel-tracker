@@ -4,14 +4,24 @@ class User {
   constructor(userId, travelData) {
     this.userId = userId
     this.upcomingTrips = this.findUpcomingTrips(travelData)
+    this.pastTrips = this.findPastTrips(travelData)
   }
 
   findUpcomingTrips(travelData) {
     return travelData.trips.filter(trip => {
-      let today = time.buildDate(travelData.currentDay)
+      let today = new Date()
       let future = time.daysFromDate(today, 365)
       let departure = time.buildDate(trip.date)
       return trip.status === "approved" && trip.userID === this.userId ? time.isBetween(today, departure, future) : false
+    })
+  }
+
+  findPastTrips(travelData) {
+    return travelData.trips.filter(trip => {
+      let yesterday = time.daysFromDate(new Date(), -1)
+      let past = time.daysFromDate(yesterday, -365)
+      let finalDayOfTrip = time.daysFromDate(time.buildDate(trip.date), trip.duration)
+      return trip.status === "approved" && trip.userID === this.userId ? time.isBetween(past, finalDayOfTrip, yesterday) : false
     })
   }
 
