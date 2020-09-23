@@ -1,6 +1,5 @@
 class TravelRepository {
   constructor() {
-    this.currentDay = new Date()
   }
 
   getDestinations () {
