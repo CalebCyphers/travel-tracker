@@ -1,6 +1,18 @@
+import time from '../src/Time.js';
+
 class User {
   constructor(userId, travelData) {
     this.userId = userId
+    this.upcomingTrips = this.findUpcomingTrips(travelData)
+  }
+
+  findUpcomingTrips(travelData) {
+    return travelData.trips.filter(trip => {
+      let today = time.buildDate(travelData.currentDay)
+      let future = time.daysFromDate(today, 365)
+      let departure = time.buildDate(trip.date)
+      return trip.status === "approved" && trip.userID === this.userId ? time.isBetween(today, departure, future) : false
+    })
   }
 
   getUserData() {
