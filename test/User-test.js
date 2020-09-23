@@ -58,7 +58,7 @@ describe('User', () => {
         userID: 2
       },
       {
-        date: "2020/05/22",
+        date: "2020/10/22",
         destinationID: 1,
         duration: 17,
         id: 3,
@@ -75,7 +75,7 @@ describe('User', () => {
         status: "pending",
         suggestedActivities: [],
         travelers: 2,
-        userID: 1
+        userID: 2
       }
     ]
 
@@ -92,10 +92,18 @@ describe('User', () => {
     expect(testUser.travelerType).to.equal("relaxer");
   });
 
-  it('should be able to fetch data', () => {
-    
-    testUser.getUserData;
-
-    expect(testUser.getUserData()).to.have.been.called();
+  it('should be able to have trips planned', () => {
+    expect(testUser.upcomingTrips).to.deep.equal([
+      {
+        date: "2020/10/22",
+        destinationID: 1,
+        duration: 17,
+        id: 3,
+        status: "approved",
+        suggestedActivities: [],
+        travelers: 4,
+        userID: 2
+      }
+    ])
   });
 });

@@ -1,6 +1,14 @@
 class User {
   constructor(userId, travelData) {
     this.userId = userId
+    this.upcomingTrips = travelData.trips.filter(trip => {
+      console.log(trip)
+      let today = travelData.currentDay.split("/")
+      console.log(today)
+      let departure = trip.date.split("/")
+      console.log(departure)
+      return parseInt(today[0]) <= parseInt(departure[0]) && parseInt(today[1]) <= parseInt(departure[1]) && parseInt(today[2]) < parseInt(departure[2]) && trip.status === "approved"
+    })
   }
 
   getUserData() {
