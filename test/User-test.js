@@ -151,4 +151,15 @@ describe('User', () => {
       }
     ]);
   });
+
+  it('should be able to calculate how much the traveler has spent this year, including a travel aget fee of 10%', () => {
+    expect(testUser.expenses).to.deep.equal([
+      {
+        thisYear: new Date(2020, 0),
+        tripExpenses: 2040,
+        agentFees: 204,
+        total: 2244
+      }
+    ]);
+  });
 });

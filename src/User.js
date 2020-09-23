@@ -7,6 +7,7 @@ class User {
     this.pastTrips = this.findPastTrips(travelData)
     this.pendingTrips = this.findPendingTrips(travelData)
     this.currentTrip = this.findCurrentTrip(travelData)
+    this.expenses = this.findExpensesForCurrentYear(travelData)
   }
 
   findUpcomingTrips(travelData) {
@@ -43,6 +44,24 @@ class User {
       let finalDayOfTrip = time.daysFromDate(departure, trip.duration)
       return trip.status === "approved" && trip.userID === this.userId ? time.isBetween(departure, today, finalDayOfTrip) : false
     })
+  }
+
+  findExpensesForCurrentYear(travelData) {
+    let future = time.daysFromDate(new Date(), 36500)
+    let spentThisYear = {};
+    spentThisYear.thisYear = new Date(new Date().getFullYear(), 0)
+    spentThisYear.tripExpenses = travelData.trips.reduce((acc, trip) => {
+      if (time.isBetween(spentThisYear.thisYear, time.buildDate(trip.date), future) && trip.status === "approved" && trip.userID === this.userId) {
+        let destination = travelData.destinations.find(place => place.id === trip.destinationID)
+        let totalForTrip = (destination.estimatedFlightCostPerPerson * trip.travelers) + (destination.estimatedLodgingCostPerDay * trip.travelers)
+        return acc + totalForTrip
+      } else {
+        return acc
+      }
+    }, 0)
+    spentThisYear.agentFees = Math.floor(spentThisYear.tripExpenses * 0.1)
+    spentThisYear.total = spentThisYear.tripExpenses + spentThisYear.agentFees
+    return [spentThisYear]
   }
 
   getUserData() {
