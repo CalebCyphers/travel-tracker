@@ -42,6 +42,10 @@ const domUpdate = {
     expensesDisplay.innerHTML = `<h3>Total spent this year: $${user.expenses[0].total}*</h3>
     <p>*Number includes $${user.expenses[0].agentFees} in travel agent fees</p>`
   }
+
+  // populateDestinationForm(travelRepository) {
+  //   let 
+  // }
 }
 
 export default domUpdate;

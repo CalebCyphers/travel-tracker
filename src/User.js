@@ -75,8 +75,6 @@ class User {
       .catch(err => alert('User failed to load. Try again later', err))
   }
 
-
-
 }
 
 export default User;
