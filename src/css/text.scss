@@ -1,0 +1,35 @@
+
+@mixin centerText {
+  text-align: center;
+  margin: auro;
+}
+
+h1 {
+  @include centerText()
+}
+
+h2 {
+  @include centerText()
+}
+
+.trip-request-section {
+
+  h3 {
+    @include centerText()
+  }
+
+  h4 {
+    @include centerText()
+  }
+}
+
+.expenses-display {
+
+  h3 {
+    @include centerText()
+  }
+
+  p {
+    @include centerText()
+  }
+}
