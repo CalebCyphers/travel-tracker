@@ -22,7 +22,9 @@ setTimeout(() => {
 }, 300)
 
 let updateForm = () => {
-  domUpdate.displayEstimatedCost(repository)
+  if (!submitButton.classList.contains('disabled')) {
+    domUpdate.displayEstimatedCost(repository)
+  }
 }
 
 let constructDOM = (user) => {
