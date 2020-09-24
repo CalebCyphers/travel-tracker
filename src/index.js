@@ -18,10 +18,6 @@ let repository = new TravelRepository;
 repository.getDestinations();
 repository.getTrips();
 
-setTimeout(() => {
-  constructDOM(traveler)
-}, 300)
-
 let generateTrip = (user) => {
   let destination = repository.destinations.find(place => place.destination === destinationSelect.value)
   let newDate = departureDateInput.value.split('-')
@@ -56,10 +52,18 @@ let resetLogin = () => {
 }
 
 let validateLogin = () => {
-  let username = usernameInput.value.split(traveler)
+  let username = usernameInput.value.split('traveler')
+  console.log(username)
   if (username[0] === '' && parseInt(username[1]) > 0 && parseInt(username[1]) <= 50 && passwordInput.value === 'travel2020') {
     traveler = new User(parseInt(username[1]), repository);
     traveler.getUserData();
+    setTimeout(() => {
+      constructDOM(traveler)
+    }, 200)
+    domUpdate.displayAlert()
+    setTimeout(() => {
+      domUpdate.displayMain()
+    }, 250)
   }
 }
 
@@ -89,7 +93,7 @@ let checkInputs = (event) => {
     generateTrip(traveler)
     resetForm()
   }
-  if (event.target.classList.contains('trip-request-btn') && !event.target.classList.contains('disabled')) {
+  if (event.target.classList.contains('login-btn') && !event.target.classList.contains('disabled')) {
     validateLogin()
     resetLogin()
   }
@@ -110,8 +114,3 @@ let constructDOM = (user) => {
 
 body.addEventListener('click', checkInputs)
 body.addEventListener('keyup', checkInputs)
-
-setTimeout(function() { 
-  console.log(traveler)
-  console.log(repository)
-}, 151);

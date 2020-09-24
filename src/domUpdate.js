@@ -62,6 +62,22 @@ const domUpdate = {
     let destination = travelRepository.destinations.find(place => place.destination === destinationSelect.value)
     let tripCost = (destination.estimatedFlightCostPerPerson * numberOfTravelersInput.value) + (destination.estimatedLodgingCostPerDay * numberOfTravelersInput.value * tripDurationInput.value)
     estimatedCostDisplay.innerHTML = `<h4>Estimated cost of trip = $${tripCost + Math.round(tripCost * 0.1)}</h4>`
+  },
+
+  displayMain() {
+    let sections = document.querySelectorAll('section')
+    sections.forEach(section => {
+      if (section.classList.contains('hidden')) {
+        section.classList.remove('hidden')
+      } else {
+        section.classList.add('hidden')
+      }
+    })
+  },
+
+  displayAlert() {
+    let loginForm = document.querySelector('.login-form')
+    loginForm.insertAdjacentHTML("beforeend", '<p class="alert-success">Success! Logging you in...</p>')
   }
 }
 
