@@ -8,6 +8,7 @@ class User {
     this.pendingTrips = this.findPendingTrips(travelData)
     this.currentTrip = this.findCurrentTrip(travelData)
     this.expenses = this.findExpensesForCurrentYear(travelData)
+    this.name = "Dingus"
   }
 
   findUpcomingTrips(travelData) {
