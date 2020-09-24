@@ -46,6 +46,14 @@ const domUpdate = {
   populateDestinationForm(travelRepository) {
     let destinationSelect = document.querySelector('#destination-select')
     travelRepository.destinations.forEach(place => destinationSelect.innerHTML += `<option>${place.destination}</option>`)
+  },
+
+  displayEstimatedCost() {
+    let destinationSelect = document.querySelector('#destination-select')
+    let departureDateInput = document.querySelector('#departure-date')
+    let tripDurationInput = document.querySelector('#duration')
+    let numberOfTravelersInput = document.querySelector('#number-of-travelers')
+    let estimatedCostDisplay = document.querySelector('#estimated-cost-display')
   }
 }
 
