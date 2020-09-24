@@ -3,7 +3,12 @@ import domUpdate from './domUpdate.js';
 import User from './User';
 import TravelRepository from './TravelRepository';
 
+let body = document.querySelector('body')
 let submitButton = document.querySelector('#form-submit-btn')
+let destinationSelect = document.querySelector('#destination-select')
+let tripDurationInput = document.querySelector('#duration')
+let departureDateInput = document.querySelector('#departure-date')
+let numberOfTravelersInput = document.querySelector('#number-of-travelers')
 
 let traveler;
 let repository = new TravelRepository;
@@ -27,6 +32,12 @@ let updateForm = () => {
   }
 }
 
+let checkInputs = () => {
+  if (destinationSelect.value && tripDurationInput.value && numberOfTravelersInput.value && departureDateInput.value) {
+    submitButton.classList.remove('disabled')
+  }
+}
+
 let constructDOM = (user) => {
   domUpdate.displayGreeting(user)
   domUpdate.displayUpcomingTrips(user, repository)
@@ -38,6 +49,7 @@ let constructDOM = (user) => {
 }
 
 submitButton.addEventListener('click', updateForm)
+body.addEventListener('click', checkInputs)
 
 setTimeout(function() { 
   console.log(traveler)
