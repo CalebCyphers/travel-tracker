@@ -28,6 +28,14 @@ const domUpdate = {
       pendingTripsContent.innerHTML += `<p class='pending-trip trip-card'>To: ${destination.destination} <br>• Number of Travelers : ${trip.travelers}<br>• Start Date: ${trip.date}<br>• Duration: ${trip.duration} days.</p>`
     })
   },
+
+  displayPastTrips(user, travelRepository) {
+    let pastTripsContent = document.querySelector('.past-trips-content')
+    user.pastTrips.forEach(trip => {
+      let destination = travelRepository.destinations.find(place => place.id === trip.destinationID)
+      pastTripsContent.innerHTML += `<p class='past-trip trip-card'>To: ${destination.destination} <br>• Number of Travelers : ${trip.travelers}<br>• Start Date: ${trip.date}<br>• Duration: ${trip.duration} days.</p>`
+    })
+  },
 }
 
 export default domUpdate;

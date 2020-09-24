@@ -22,6 +22,7 @@ let constructDOM = (user) => {
   domUpdate.displayUpcomingTrips(user, repository)
   domUpdate.displayCurrentTrip(user, repository)
   domUpdate.displayPendingTrips(user, repository)
+  domUpdate.displayPastTrips(user, repository)
 }
 
 setTimeout(function() { 
