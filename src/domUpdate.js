@@ -48,12 +48,14 @@ const domUpdate = {
     travelRepository.destinations.forEach(place => destinationSelect.innerHTML += `<option>${place.destination}</option>`)
   },
 
-  displayEstimatedCost() {
+  displayEstimatedCost(travelRepository) {
     let destinationSelect = document.querySelector('#destination-select')
-    let departureDateInput = document.querySelector('#departure-date')
     let tripDurationInput = document.querySelector('#duration')
     let numberOfTravelersInput = document.querySelector('#number-of-travelers')
     let estimatedCostDisplay = document.querySelector('#estimated-cost-display')
+    let destination = travelRepository.destinations.find(place => place.destination === destinationSelect.value)
+    let tripCost = (destination.estimatedFlightCostPerPerson * numberOfTravelersInput.value) + (destination.estimatedLodgingCostPerDay * numberOfTravelersInput.value * tripDurationInput.value)
+    estimatedCostDisplay.innerHTML = `Estimated cost of trip = $${tripCost + Math.round(tripCost * 0.1)}`
   }
 }
 
