@@ -19,9 +19,10 @@ setTimeout(() => {
 
 let constructDOM = (user) => {
   domUpdate.displayGreeting(user)
+  domUpdate.displayUpcomingTrips(user, repository)
 }
 
-// setTimeout(function() { 
-//   console.log(traveler)
-//   console.log(repository)
-// }, 151);
+setTimeout(function() { 
+  console.log(traveler)
+  console.log(repository)
+}, 151);
