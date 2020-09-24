@@ -3,12 +3,18 @@ $primary-color: rgb(40, 40, 40);
 $medium-color: rgb(55, 55, 55);
 $lighter-color: rgb(203, 203, 203);
 $highlight-color: rgb(255, 214, 64);
-$standard-padding: 10px;
+$standard-padding: 1em;
 
 @mixin centerFlex() {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@mixin float {
+  background: none !important;
+  border: none !important;
+  margin-top: $standard-padding;
 }
 
 body {
@@ -19,7 +25,7 @@ body {
 
 section {
   background-color: $primary-color;
-  border-radius: $standard-padding;
+  border-radius: 5px;
   margin: $standard-padding;
   padding: $standard-padding;
   border: 1px solid $medium-color;
@@ -31,4 +37,16 @@ section {
 
 .icon-holder {
   @include centerFlex()
+}
+
+.request-a-trip {
+  width: 100%;
+}
+
+.total-spent-section {
+  @include float()
+}
+
+.greeting-section {
+  @include float()
 }
