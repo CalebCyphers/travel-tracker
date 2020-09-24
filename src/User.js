@@ -72,6 +72,7 @@ class User {
         this.name = data.name
         this.travelerType = data.travelerType
       })
+      .catch(err => alert('User failed to load. Try again later', err))
   }
 
 
