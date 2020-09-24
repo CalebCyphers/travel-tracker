@@ -39,7 +39,7 @@ let generateTrip = (user) => {
     suggestedActivities: []
   }
   postTrip(newTrip)
-  return newTrip
+  domUpdate.addPendingTrip(newTrip, repository)
 }
 
 let resetForm = () => {
