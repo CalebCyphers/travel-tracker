@@ -36,6 +36,12 @@ const domUpdate = {
       pastTripsContent.innerHTML += `<p class='past-trip trip-card'>To: ${destination.destination} <br>• Number of Travelers : ${trip.travelers}<br>• Start Date: ${trip.date}<br>• Duration: ${trip.duration} days.</p>`
     })
   },
+
+  displayYearExpenses(user) {
+    let expensesDisplay = document.querySelector('.expenses-display')
+    expensesDisplay.innerHTML = `<h3>Total spent this year: $${user.expenses[0].total}*</h3>
+    <p>*Number includes $${user.expenses[0].agentFees} in travel agent fees</p>`
+  }
 }
 
 export default domUpdate;
