@@ -1,4 +1,5 @@
 import './css/base.scss';
+import './css/text.scss';
 import domUpdate from './domUpdate.js';
 import User from './User';
 import TravelRepository from './TravelRepository';
