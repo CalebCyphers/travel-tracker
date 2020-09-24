@@ -38,7 +38,7 @@ let generateTrip = (user) => {
     status: 'pending',
     suggestedActivities: []
   }
-  console.log(newTrip)
+  postTrip(newTrip)
   return newTrip
 }
 
@@ -48,12 +48,29 @@ let updateForm = () => {
   }
 }
 
+let postTrip = (trip) => {
+  let tripToPost = trip
+  console.log(tripToPost)
+  let postRequest = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(tripToPost)
+  };
+  console.log(postRequest)
+  fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/trips/trips', postRequest)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => alert('Data failed to post. Try again later', err))
+}
+
 let checkInputs = (event) => {
   if (destinationSelect.value && tripDurationInput.value && numberOfTravelersInput.value && departureDateInput.value) {
     submitButton.classList.remove('disabled')
   }
   if (event.target.classList.contains('btn')) {
-    generateTrip(traveler, repository)
+    generateTrip(traveler)
   }
   updateForm()
 }
