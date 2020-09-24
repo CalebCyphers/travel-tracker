@@ -1,6 +1,7 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgb(66, 67, 73) 0%, rgb(107, 111, 125) 100%);
-$primary-color: rgb(67, 67, 67);
+$primary-background: radial-gradient(circle, rgb(4, 4, 4) 0%, rgb(30, 31, 35) 100%);
+$primary-color: rgb(40, 40, 40);
+$medium-color: rgb(55, 55, 55);
 $lighter-color: rgb(203, 203, 203);
 $highlight-color: rgb(255, 214, 64);
 $standard-padding: 10px;
@@ -25,11 +26,9 @@ section {
   border-radius: $standard-padding;
   margin: $standard-padding;
   padding: $standard-padding;
+  border: 1px solid $medium-color;
 }
 
 .hidden {
   display: none;
 }
-
-
-
