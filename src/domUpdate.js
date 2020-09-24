@@ -29,6 +29,12 @@ const domUpdate = {
     })
   },
 
+  addPendingTrip(trip, travelRepository) {
+    let pendingTripsContent = document.querySelector('.pending-trips-content')
+    let destination = travelRepository.destinations.find(place => place.id === trip.destinationID)
+    pendingTripsContent.innerHTML += `<p class='pending-trip trip-card'>To: ${destination.destination} <br>• Number of Travelers : ${trip.travelers}<br>• Start Date: ${trip.date}<br>• Duration: ${trip.duration} days.</p>`
+  },
+
   displayPastTrips(user, travelRepository) {
     let pastTripsContent = document.querySelector('.past-trips-content')
     user.pastTrips.forEach(trip => {
