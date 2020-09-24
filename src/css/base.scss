@@ -1,11 +1,35 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-;
+$primary-background: radial-gradient(circle, rgb(66, 67, 73) 0%, rgb(107, 111, 125) 100%);
+$primary-color: rgb(67, 67, 67);
+$lighter-color: rgb(203, 203, 203);
+$highlight-color: rgb(255, 214, 64);
+$standard-padding: 10px;
+
+
+
+@mixin centerFlex($direction) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
 
 body {
   background: $primary-background;
+  color: $lighter-color;
+  margin: $standard-padding;
+}
+
+section {
+  background-color: $primary-color;
+  border-radius: $standard-padding;
+  margin: $standard-padding;
+  padding: $standard-padding;
 }
 
 .hidden {
   display: none;
 }
+
+
+
