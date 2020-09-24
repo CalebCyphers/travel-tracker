@@ -41,6 +41,11 @@ const domUpdate = {
     let expensesDisplay = document.querySelector('.expenses-display')
     expensesDisplay.innerHTML = `<h3>Total spent this year: $${user.expenses[0].total}*</h3>
     <p>*Number includes $${user.expenses[0].agentFees} in travel agent fees</p>`
+  },
+
+  populateDestinationForm(travelRepository) {
+    let destinationSelect = document.querySelector('#destination-select')
+    travelRepository.destinations.forEach(place => destinationSelect.innerHTML += `<option>${place.destination}</option>`)
   }
 }
 

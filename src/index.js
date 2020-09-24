@@ -24,6 +24,7 @@ let constructDOM = (user) => {
   domUpdate.displayPendingTrips(user, repository)
   domUpdate.displayPastTrips(user, repository)
   domUpdate.displayYearExpenses(user)
+  domUpdate.populateDestinationForm(repository)
 }
 
 setTimeout(function() { 
