@@ -52,10 +52,10 @@ const domUpdate = {
     let destinationSelect = document.querySelector('#destination-select')
     let tripDurationInput = document.querySelector('#duration')
     let numberOfTravelersInput = document.querySelector('#number-of-travelers')
-    let estimatedCostDisplay = document.querySelector('#estimated-cost-display')
+    let estimatedCostDisplay = document.querySelector('.estimated-cost-display')
     let destination = travelRepository.destinations.find(place => place.destination === destinationSelect.value)
     let tripCost = (destination.estimatedFlightCostPerPerson * numberOfTravelersInput.value) + (destination.estimatedLodgingCostPerDay * numberOfTravelersInput.value * tripDurationInput.value)
-    estimatedCostDisplay.innerHTML = `Estimated cost of trip = $${tripCost + Math.round(tripCost * 0.1)}`
+    estimatedCostDisplay.innerHTML = `<h4>Estimated cost of trip = $${tripCost + Math.round(tripCost * 0.1)}</h4>`
   }
 }
 
