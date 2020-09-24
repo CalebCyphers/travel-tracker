@@ -19,11 +19,6 @@ repository.getDestinations();
 repository.getTrips();
 
 setTimeout(() => {
-  traveler = new User(Math.floor((Math.random() * 20) + 1), repository);
-  traveler.getUserData();
-}, 150)
-
-setTimeout(() => {
   constructDOM(traveler)
 }, 300)
 
@@ -52,6 +47,19 @@ let resetForm = () => {
   numberOfTravelersInput.value = ''
   if (!submitButton.classList.contains('disabled')) {
     submitButton.classList.add('disabled')
+  }
+}
+
+let resetLogin = () => {
+  usernameInput.value = ''
+  passwordInput.value = ''
+}
+
+let validateLogin = () => {
+  let username = usernameInput.value.split(traveler)
+  if (username[0] === '' && parseInt(username[1]) > 0 && parseInt(username[1]) <= 50 && passwordInput.value === 'travel2020') {
+    traveler = new User(parseInt(username[1]), repository);
+    traveler.getUserData();
   }
 }
 
