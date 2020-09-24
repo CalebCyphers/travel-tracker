@@ -6,7 +6,21 @@
     <title>Travel Tracker</title>
   </head>
   <body>
-    <section class="page-title-section">
+    <section>
+      <div class="container">
+        <form class="login-form" action="login">
+          <div class="form-group">
+            <label for="username-input">Username</label>
+            <input type="text" paceholder="Username" class="form-control" id="username-input"></input>
+          </div>
+          <div class="form-group">
+            <label for="password-input">Username</label>
+            <input type="password" paceholder="Password" class="form-control" id="password-input"></input>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section class="page-title-section hidden">
       <div class="container">
         <div class="row">
           <div class="col">
@@ -21,7 +35,7 @@
         </div>
       </div>
     </section>
-    <section class="greeting-section">
+    <section class="greeting-section hidden">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-8">
@@ -30,7 +44,7 @@
         </div>
       </div>
     </section>
-    <section class="upcoming-trip-section">
+    <section class="upcoming-trip-section hidden">
       <div class="container">
         <div class="row">
           <div class="col-6 trip-image-column">
@@ -42,7 +56,7 @@
         </div>
       </div>
     </section>
-    <section class="current-trip-section">
+    <section class="current-trip-section hidden">
       <div class="container">
         <div class="row">
           <div class="col-6 trip-image-column">
@@ -54,7 +68,7 @@
         </div>
       </div>
     </section>
-    <section class="pending-trip-section">
+    <section class="pending-trip-section hidden">
       <div class="container">
         <div class="row">
           <div class="col-6 trip-image-column">
@@ -66,7 +80,7 @@
         </div>
       </div>
     </section>
-    <section class="past-trip-section">
+    <section class="past-trip-section hidden">
       <div class="container">
         <div class="row">
           <div class="col-6 trip-image-column">
@@ -78,7 +92,7 @@
         </div>
       </div>
     </section>
-    <section class="total-spent-section">
+    <section class="total-spent-section hidden">
       <div class="container">
         <div class="row">
           <div class="col expenses-display">
@@ -88,7 +102,7 @@
         </div>
       </div>
     </section>
-    <section class="trip-request-section">
+    <section class="trip-request-section hidden">
       <div class="container">
         <div class="row">
           <div class="col">
