@@ -15,8 +15,6 @@ let repository = new TravelRepository;
 repository.getDestinations();
 repository.getTrips();
 
-
-
 setTimeout(() => {
   traveler = new User(Math.floor((Math.random() * 20) + 1), repository);
   traveler.getUserData();
@@ -25,6 +23,23 @@ setTimeout(() => {
 setTimeout(() => {
   constructDOM(traveler)
 }, 300)
+
+let generateTrip = (user, travelRepository) => {
+  let destination = travelRepository.destinations.find(place => place.destination === destinationSelect.value)
+  let newDate = departureDateInput.value.split('-')
+  newDate = newDate.join('/')
+  let newTrip = {
+    id: Date.now(),
+    userID: user.userId,
+    destinationID: destination.id,
+    travelers: parseInt(numberOfTravelersInput.value),
+    date: newDate,
+    duration: parseInt(tripDurationInput.value),
+    status: 'pending',
+    suggestedActivities: []
+  }
+  return newTrip
+}
 
 let updateForm = () => {
   if (!submitButton.classList.contains('disabled')) {
@@ -36,6 +51,8 @@ let checkInputs = () => {
   if (destinationSelect.value && tripDurationInput.value && numberOfTravelersInput.value && departureDateInput.value) {
     submitButton.classList.remove('disabled')
   }
+  updateForm()
+  generateTrip(traveler, repository)
 }
 
 let constructDOM = (user) => {
@@ -48,7 +65,6 @@ let constructDOM = (user) => {
   domUpdate.populateDestinationForm(repository)
 }
 
-submitButton.addEventListener('click', updateForm)
 body.addEventListener('click', checkInputs)
 
 setTimeout(function() { 
