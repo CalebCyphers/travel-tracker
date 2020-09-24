@@ -9,20 +9,14 @@ let destinationSelect = document.querySelector('#destination-select')
 let tripDurationInput = document.querySelector('#duration')
 let departureDateInput = document.querySelector('#departure-date')
 let numberOfTravelersInput = document.querySelector('#number-of-travelers')
+let usernameInput = document.querySelector('#username-input')
+let passwordInput = document.querySelector('#password-input')
+let loginButton = document.querySelector('#login-btn')
 
 let traveler;
 let repository = new TravelRepository;
 repository.getDestinations();
 repository.getTrips();
-
-setTimeout(() => {
-  traveler = new User(Math.floor((Math.random() * 20) + 1), repository);
-  traveler.getUserData();
-}, 150)
-
-setTimeout(() => {
-  constructDOM(traveler)
-}, 300)
 
 let generateTrip = (user) => {
   let destination = repository.destinations.find(place => place.destination === destinationSelect.value)
@@ -52,6 +46,27 @@ let resetForm = () => {
   }
 }
 
+let resetLogin = () => {
+  usernameInput.value = ''
+  passwordInput.value = ''
+}
+
+let validateLogin = () => {
+  let username = usernameInput.value.split('traveler')
+  console.log(username)
+  if (username[0] === '' && parseInt(username[1]) > 0 && parseInt(username[1]) <= 50 && passwordInput.value === 'travel2020') {
+    traveler = new User(parseInt(username[1]), repository);
+    traveler.getUserData();
+    setTimeout(() => {
+      constructDOM(traveler)
+    }, 200)
+    domUpdate.displayAlert()
+    setTimeout(() => {
+      domUpdate.displayMain()
+    }, 250)
+  }
+}
+
 let postTrip = (trip) => {
   let tripToPost = trip
   let postRequest = {
@@ -71,9 +86,16 @@ let checkInputs = (event) => {
   if (destinationSelect.value && tripDurationInput.value && numberOfTravelersInput.value && departureDateInput.value) {
     submitButton.classList.remove('disabled')
   }
-  if (event.target.classList.contains('btn') && !event.target.classList.contains('disabled')) {
+  if (usernameInput.value && passwordInput.value) {
+    loginButton.classList.remove('disabled')
+  }
+  if (event.target.classList.contains('trip-request-btn') && !event.target.classList.contains('disabled')) {
     generateTrip(traveler)
     resetForm()
+  }
+  if (event.target.classList.contains('login-btn') && !event.target.classList.contains('disabled')) {
+    validateLogin()
+    resetLogin()
   }
   if (!submitButton.classList.contains('disabled')) {
     domUpdate.displayEstimatedCost(repository)
@@ -92,8 +114,3 @@ let constructDOM = (user) => {
 
 body.addEventListener('click', checkInputs)
 body.addEventListener('keyup', checkInputs)
-
-setTimeout(function() { 
-  console.log(traveler)
-  console.log(repository)
-}, 151);
