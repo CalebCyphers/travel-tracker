@@ -42,15 +42,18 @@ let generateTrip = (user) => {
   return newTrip
 }
 
-let updateForm = () => {
+let resetForm = () => {
+  destinationSelect.value = ''
+  tripDurationInput.value = ''
+  departureDateInput.value = ''
+  numberOfTravelersInput.value = ''
   if (!submitButton.classList.contains('disabled')) {
-    domUpdate.displayEstimatedCost(repository)
+    submitButton.classList.add('disabled')
   }
 }
 
 let postTrip = (trip) => {
   let tripToPost = trip
-  console.log(tripToPost)
   let postRequest = {
     method: 'POST',
     headers: {
@@ -58,7 +61,6 @@ let postTrip = (trip) => {
     },
     body: JSON.stringify(tripToPost)
   };
-  console.log(postRequest)
   fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/trips/trips', postRequest)
     .then(response => response.json())
     .then(response => console.log(response))
@@ -69,10 +71,13 @@ let checkInputs = (event) => {
   if (destinationSelect.value && tripDurationInput.value && numberOfTravelersInput.value && departureDateInput.value) {
     submitButton.classList.remove('disabled')
   }
-  if (event.target.classList.contains('btn')) {
+  if (event.target.classList.contains('btn') && !event.target.classList.contains('disabled')) {
     generateTrip(traveler)
+    resetForm()
   }
-  updateForm()
+  if (!submitButton.classList.contains('disabled')) {
+    domUpdate.displayEstimatedCost(repository)
+  }
 }
 
 let constructDOM = (user) => {
