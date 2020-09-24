@@ -6,7 +6,6 @@ by [Caleb Cyphers](https://github.com/CalebCyphers)
 1. [Overview and Goals](#overview)
 1. [Technologies](#technologies)
 1. [Design](#design)
-1. [Widgets](#widgets)
 1. [Challenges](#challenges)
 1. [Successes](#successes)
 ---
