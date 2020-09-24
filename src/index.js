@@ -23,6 +23,7 @@ let constructDOM = (user) => {
   domUpdate.displayCurrentTrip(user, repository)
   domUpdate.displayPendingTrips(user, repository)
   domUpdate.displayPastTrips(user, repository)
+  domUpdate.displayYearExpenses(user)
 }
 
 setTimeout(function() { 
