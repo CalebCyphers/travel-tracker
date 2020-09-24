@@ -24,8 +24,8 @@ setTimeout(() => {
   constructDOM(traveler)
 }, 300)
 
-let generateTrip = (user, travelRepository) => {
-  let destination = travelRepository.destinations.find(place => place.destination === destinationSelect.value)
+let generateTrip = (user) => {
+  let destination = repository.destinations.find(place => place.destination === destinationSelect.value)
   let newDate = departureDateInput.value.split('-')
   newDate = newDate.join('/')
   let newTrip = {
@@ -38,6 +38,7 @@ let generateTrip = (user, travelRepository) => {
     status: 'pending',
     suggestedActivities: []
   }
+  console.log(newTrip)
   return newTrip
 }
 
@@ -47,12 +48,14 @@ let updateForm = () => {
   }
 }
 
-let checkInputs = () => {
+let checkInputs = (event) => {
   if (destinationSelect.value && tripDurationInput.value && numberOfTravelersInput.value && departureDateInput.value) {
     submitButton.classList.remove('disabled')
   }
+  if (event.target.classList.contains('btn')) {
+    generateTrip(traveler, repository)
+  }
   updateForm()
-  generateTrip(traveler, repository)
 }
 
 let constructDOM = (user) => {
@@ -66,6 +69,7 @@ let constructDOM = (user) => {
 }
 
 body.addEventListener('click', checkInputs)
+body.addEventListener('keyup', checkInputs)
 
 setTimeout(function() { 
   console.log(traveler)
