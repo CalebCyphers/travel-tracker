@@ -1,4 +1,5 @@
 import './css/base.scss';
+import './css/text.scss';
 import domUpdate from './domUpdate.js';
 import User from './User';
 import TravelRepository from './TravelRepository';
@@ -53,7 +54,6 @@ let resetLogin = () => {
 
 let validateLogin = () => {
   let username = usernameInput.value.split('traveler')
-  console.log(username)
   if (username[0] === '' && parseInt(username[1]) > 0 && parseInt(username[1]) <= 50 && passwordInput.value === 'travel2020') {
     traveler = new User(parseInt(username[1]), repository);
     traveler.getUserData();
