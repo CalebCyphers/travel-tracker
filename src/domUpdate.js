@@ -9,7 +9,7 @@ const domUpdate = {
     let upcomingTripsContent = document.querySelector('.upcoming-trips-content')
     user.upcomingTrips.forEach(trip => {
       let destination = travelRepository.destinations.find(place => place.id === trip.destinationID)
-      upcomingTripsContent.innerHTML += `<p class='upcoming-trip trip-card'>To: ${destination.destination} <br>• Number of Travelers : ${trip.travelers}<br>• Start Date: ${trip.date}<br>• Quest Duration: ${trip.duration} days.</p>`
+      upcomingTripsContent.innerHTML += `<p class='upcoming-trip trip-card'>To: ${destination.destination} <br>• Number of Travelers : ${trip.travelers}<br>• Start Date: ${trip.date}<br>• Duration: ${trip.duration} days.</p>`
     })
   },
 
@@ -17,11 +17,17 @@ const domUpdate = {
     let currentTripContent = document.querySelector('.current-trip-content')
     user.currentTrip.forEach(trip => {
       let destination = travelRepository.destinations.find(place => place.id === trip.destinationID)
-      currentTripContent.innerHTML += `<p class='current-trip trip-card'>To: ${destination.destination} <br>• Number of Travelers : ${trip.travelers}<br>• Start Date: ${trip.date}<br>• Quest Duration: ${trip.duration} days.</p>`
+      currentTripContent.innerHTML += `<p class='current-trip trip-card'>To: ${destination.destination} <br>• Number of Travelers : ${trip.travelers}<br>• Start Date: ${trip.date}<br>• Duration: ${trip.duration} days.</p>`
     })
   },
 
-  
+  displayPendingTrips(user, travelRepository) {
+    let pendingTripsContent = document.querySelector('.pending-trips-content')
+    user.pendingTrips.forEach(trip => {
+      let destination = travelRepository.destinations.find(place => place.id === trip.destinationID)
+      pendingTripsContent.innerHTML += `<p class='pending-trip trip-card'>To: ${destination.destination} <br>• Number of Travelers : ${trip.travelers}<br>• Start Date: ${trip.date}<br>• Duration: ${trip.duration} days.</p>`
+    })
+  },
 }
 
 export default domUpdate;

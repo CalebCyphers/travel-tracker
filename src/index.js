@@ -21,6 +21,7 @@ let constructDOM = (user) => {
   domUpdate.displayGreeting(user)
   domUpdate.displayUpcomingTrips(user, repository)
   domUpdate.displayCurrentTrip(user, repository)
+  domUpdate.displayPendingTrips(user, repository)
 }
 
 setTimeout(function() { 
