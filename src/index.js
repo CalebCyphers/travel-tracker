@@ -9,6 +9,9 @@ let destinationSelect = document.querySelector('#destination-select')
 let tripDurationInput = document.querySelector('#duration')
 let departureDateInput = document.querySelector('#departure-date')
 let numberOfTravelersInput = document.querySelector('#number-of-travelers')
+let usernameInput = document.querySelector('#username-input')
+let passwordInput = document.querySelector('#password-input')
+let loginButton = document.querySelector('#login-btn')
 
 let traveler;
 let repository = new TravelRepository;
@@ -71,9 +74,16 @@ let checkInputs = (event) => {
   if (destinationSelect.value && tripDurationInput.value && numberOfTravelersInput.value && departureDateInput.value) {
     submitButton.classList.remove('disabled')
   }
-  if (event.target.classList.contains('btn') && !event.target.classList.contains('disabled')) {
+  if (usernameInput.value && passwordInput.value) {
+    loginButton.classList.remove('disabled')
+  }
+  if (event.target.classList.contains('trip-request-btn') && !event.target.classList.contains('disabled')) {
     generateTrip(traveler)
     resetForm()
+  }
+  if (event.target.classList.contains('trip-request-btn') && !event.target.classList.contains('disabled')) {
+    validateLogin()
+    resetLogin()
   }
   if (!submitButton.classList.contains('disabled')) {
     domUpdate.displayEstimatedCost(repository)
