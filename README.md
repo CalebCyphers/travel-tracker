@@ -45,8 +45,6 @@ Travel Tracker is a project meant to test learning front-end developer's skills 
 There was some difficulty with trying to add new technologies through npm. Bootstrap's instructions on the website were easy: 'simply run `npm install bootstrap` in the terminal.' However, in the end, after numerous errors, I ended up conceding and linking to their online stylesheet in stead.
 
 Working with dates was quite difficult. I was able to learn a lot about how the native Date object works in JS, and a classmate (Matt Lane) was kind enough to help me with setting up the `time.js` file which helped pave the road to the final product.
- 
-> [Back to the top](#fitlit)
 
 ---
  ## Successes
